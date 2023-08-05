@@ -11,7 +11,8 @@ class Book(models.Model):
     genre = models.ManyToManyField(to='Genre', related_name='books', blank=True,)
     time_create = models.DateTimeField(verbose_name='время добавления', auto_now_add=True)
     time_update = models.DateTimeField(verbose_name='время обновления', auto_now=True)
-    owner = models.ForeignKey(User, verbose_name='владелец', null=True, blank=True, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, verbose_name='владелец', on_delete=models.CASCADE)
+    is_ordered = models.BooleanField(verbose_name='участие в запросе', default=False)
     photo = models.ImageField(upload_to='book_photo/', blank=True, verbose_name='фотография книги')
 
 
