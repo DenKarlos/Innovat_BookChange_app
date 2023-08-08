@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = 'django-insecure-qm-)e$(zbk$3#-c3ut%dh5sg%^vc=a8!x&712e$udec&y+n_n&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['https://kitep-change-aa8904de0346.herokuapp.com', ]
 
