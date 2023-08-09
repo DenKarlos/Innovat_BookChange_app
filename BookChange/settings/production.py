@@ -151,11 +151,11 @@ REST_FRAMEWORK = {
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# STORAGES = {"default": {"BACKEND": "storages.backends.s3boto3.S3Boto3Storage"},
-#             "staticfiles": {"BACKEND": "storages.backends.s3boto3.S3StaticStorage"}}
+STORAGES = {"default": {"BACKEND": "storages.backends.s3boto3.S3Boto3Storage"},
+            "staticfiles": {"BACKEND": "storages.backends.s3boto3.S3StaticStorage"}}
 
-AWS_ACCESS_KEY_ID = os.environ.get('BUCKETEER_AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('BUCKETEER_AWS_SECRET_ACCESS_KEY')
-AWS_REGION = os.environ.get('BUCKETEER_AWS_REGION')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('BUCKETEER_BUCKET_NAME')
+
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = 'bookchange'
 AWS_QUERYSTRING_AUTH = False
