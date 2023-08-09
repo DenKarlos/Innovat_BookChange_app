@@ -19,7 +19,7 @@ class Book(models.Model):
     class Meta:
         verbose_name = 'Книга'
         verbose_name_plural = 'Книги'
-        ordering = ['title']
+        ordering = ['-time_create']
 
     def __str__(self):
         return f'Книга: {self.title}'
@@ -31,6 +31,7 @@ class Genre(models.Model):
     class Meta:
         verbose_name = 'Жанр'
         verbose_name_plural = 'Жанры'
+        ordering = ['genre_name']
 
     def __str__(self):
         return f'Жанр: {self.genre_name}'
