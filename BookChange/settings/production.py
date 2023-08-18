@@ -19,7 +19,6 @@ DB_HOST = os.environ.get('DB_HOST')
 DB_USER = os.environ.get('DB_USER')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -48,12 +47,15 @@ INSTALLED_APPS = [
     'books',
     'users',
     'rest_framework',
-    'drf_yasg'
+    'drf_yasg',
+    'django-filters',
+    'corsheaders'
 ]
 
 MIDDLEWARE = ['django.contrib.sessions.middleware.SessionMiddleware',
               'django.middleware.security.SecurityMiddleware',
-              'whitenoise.middleware.WhiteNoiseMiddleware',
+              # 'whitenoise.middleware.WhiteNoiseMiddleware',
+              'corsheaders.middleware.CorsMiddleware'
               'django.middleware.common.CommonMiddleware',
               'django.middleware.csrf.CsrfViewMiddleware',
               'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -143,16 +145,22 @@ AUTH_USER_MODEL = 'users.User'
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
+CORS_ORIGIN_WHITELIST = [
+    'kitep-change-aa8904de0346.herokuapp.com',
+    'http://127.0.0.1:8000'
+]
+
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework.authentication.TokenAuthentication',),
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    # 'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer',),
+    # 'DEFAULT_PARSER_CLASSES': ('rest_framework.parsers.JSONParser',)
 }
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-STORAGES = {"default": {"BACKEND": "storages.backends.s3boto3.S3Boto3Storage"},
-            "staticfiles": {"BACKEND": "storages.backends.s3boto3.S3StaticStorage"}}
+# STORAGES = {"default": {"BACKEND": "storages.backends.s3boto3.S3Boto3Storage"},
+#             "staticfiles": {"BACKEND": "storages.backends.s3boto3.S3StaticStorage"}}
 
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
