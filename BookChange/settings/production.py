@@ -48,13 +48,13 @@ INSTALLED_APPS = [
     'users',
     'rest_framework',
     'drf_yasg',
-    'django-filter',
+    'django-filters',
     'corsheaders'
 ]
 
 MIDDLEWARE = ['django.contrib.sessions.middleware.SessionMiddleware',
               'django.middleware.security.SecurityMiddleware',
-              # 'whitenoise.middleware.WhiteNoiseMiddleware',
+              'whitenoise.middleware.WhiteNoiseMiddleware',
               'corsheaders.middleware.CorsMiddleware'
               'django.middleware.common.CommonMiddleware',
               'django.middleware.csrf.CsrfViewMiddleware',
@@ -147,7 +147,8 @@ MEDIA_URL = '/media/'
 
 CORS_ORIGIN_WHITELIST = [
     'kitep-change-aa8904de0346.herokuapp.com',
-    'http://127.0.0.1:8000'
+    'http://127.0.0.1:8000',
+    'http://127.0.0.1:5173'
 ]
 
 REST_FRAMEWORK = {
@@ -159,8 +160,8 @@ REST_FRAMEWORK = {
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# STORAGES = {"default": {"BACKEND": "storages.backends.s3boto3.S3Boto3Storage"},
-#             "staticfiles": {"BACKEND": "storages.backends.s3boto3.S3StaticStorage"}}
+STORAGES = {"default": {"BACKEND": "storages.backends.s3boto3.S3Boto3Storage"},
+            "staticfiles": {"BACKEND": "storages.backends.s3boto3.S3StaticStorage"}}
 
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
