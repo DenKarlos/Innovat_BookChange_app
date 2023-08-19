@@ -1,13 +1,13 @@
 from .models import Book
 from rest_framework import viewsets
 from rest_framework import permissions
-from django_filters.rest_framework import DjangoFilterBackend
+# from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import BookSerializer
 from .permissions import IsOwner
-from rest_framework.decorators import action
-from rest_framework.response import Response
+# from rest_framework.decorators import action
+# from rest_framework.response import Response
 
-from .servises import BookFilter
+# from .servises import BookFilter
 
 
 class BooksViewSet(viewsets.ReadOnlyModelViewSet):
