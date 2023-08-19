@@ -9,7 +9,6 @@ from .permissions import IsOwner
 
 # from .servises import BookFilter
 
-
 class BooksViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Book.objects.all()
     permission_classes = [permissions.AllowAny]
