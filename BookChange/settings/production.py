@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['kitep-change-aa8904de0346.herokuapp.com', ]
 
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'users',
     'rest_framework',
     'drf_yasg',
-    'django-filters',
+    # 'django-filters',
     'corsheaders'
 ]
 
@@ -153,7 +153,7 @@ CORS_ORIGIN_WHITELIST = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework.authentication.TokenAuthentication',),
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    # 'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     # 'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer',),
     # 'DEFAULT_PARSER_CLASSES': ('rest_framework.parsers.JSONParser',)
 }
